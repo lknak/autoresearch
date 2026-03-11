@@ -1,14 +1,33 @@
 {
   "permissions": {
     "allow": [
-      "Bash(python train.py)"
+      "Bash(uv run train.py)",
+      "Bash(python train.py)",
+      "Bash(../.venv/bin/uv run train.py)",
+      "Bash(../.venv/bin/python train.py)",
+      "Bash(echo *)",
+      "Bash(ls *)",
+      "Bash(nvidia-smi *)",
+
+      "Bash(git branch -a)",
+      "Bash(git status *)",
+      "Bash(git commit *)",
+      "Bash(git log *)",
+      "Bash(git * main)"
+
     ],
     "deny": [
       "Bash(curl *)",
       "Read(./.env)",
       "Read(./.env.*)",
-      "Read(./secrets/**)"
+      "Read(./secrets/**)",
+      "Read(./config/credentials.json)",
+      "Read(./build)",
+      "Bash(git push *)"
     ],
     "defaultMode": "acceptEdits"
+  },
+  "env": {
+    "CLAUDE_CODE_ATTRIBUTION_HEADER": "0"
   }
 }
